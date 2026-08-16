@@ -1,5 +1,10 @@
 <script lang="ts">
 	import '../app.css';
+	import '@fontsource/libre-baskerville';
+	import '@fontsource/libre-baskerville/700.css';
+	import '@fontsource/libre-baskerville/400-italic.css';
+	import '@fontsource/libre-franklin/400.css';
+	import '@fontsource/libre-franklin/700.css';
 	import { afterNavigate, onNavigate } from '$app/navigation';
 	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/Header.svelte';

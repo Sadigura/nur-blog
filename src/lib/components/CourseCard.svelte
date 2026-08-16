@@ -111,7 +111,7 @@
 	}
 	.course-byline {
 		font-family: var(--font-mono-bold);
-		font-weight: 400;
+		font-weight: 700;
 		font-size: 0.78rem;
 		color: var(--cat-ink);
 		opacity: 0.85;

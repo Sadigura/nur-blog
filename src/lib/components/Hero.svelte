@@ -71,7 +71,7 @@
 	.hero-byline b {
 		font-family: var(--font-mono-bold);
 		color: var(--ink);
-		font-weight: 400;
+		font-weight: 700;
 	}
 	.hero-dek {
 		font-family: var(--font-body);

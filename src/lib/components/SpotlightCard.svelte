@@ -120,7 +120,7 @@
 		font-family: var(--font-mono-bold);
 		color: var(--cat-ink);
 		opacity: 1;
-		font-weight: 400;
+		font-weight: 700;
 	}
 	.spotlight-foot {
 		background: var(--cat-tint);

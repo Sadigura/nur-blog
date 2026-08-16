@@ -64,7 +64,7 @@
 	}
 	.status-num {
 		font-family: var(--font-mono-bold);
-		font-weight: 400;
+		font-weight: 700;
 		font-size: clamp(4.5rem, 16vw, 8rem);
 		line-height: 1;
 		color: var(--ink-faint);

@@ -52,20 +52,20 @@
 	--tint-c: #f4d06f;
 	--tint-c-ink: #171016;
 
-	/* fontes instaladas localmente na máquina (licenciadas, não
-	   redistribuídas neste repositório) — quem não as tiver instaladas
-	   vê o substituto (Georgia / Arial do sistema). Warnock não existe
-	   como família separada por peso: é uma família só, com o peso
-	   normal/negrito escolhido por font-weight (por isso os dois tokens
-	   abaixo apontam pra ela e cada lugar que usa --font-headline aplica
-	   font-weight: 700). Franklin Gothic não é monoespaçada de verdade —
-	   os tokens --font-mono* mantêm o nome só por já serem usados assim
-	   no resto do CSS, mas o alinhamento em colunas que dependeria de
-	   largura fixa de caractere não se aplica mais aqui. */
-	--font-headline: 'Warnock Pro', 'Warnock', Georgia, serif;
-	--font-body: 'Warnock Pro', 'Warnock', Georgia, serif;
-	--font-mono: 'Franklin Gothic Medium', 'Franklin Gothic', Arial, sans-serif;
-	--font-mono-bold: 'Franklin Gothic Medium', 'Franklin Gothic', Arial, sans-serif;
+	/* Fontes self-hosted via Fontsource (pacotes @fontsource/libre-baskerville
+	   e @fontsource/libre-franklin, importados em src/routes/+layout.svelte)
+	   — arquivos woff2 de licença aberta (SIL OFL) embutidos no próprio
+	   build, então aparecem iguais em qualquer máquina, sem depender de
+	   fonte instalada localmente nem de serviço externo (ao contrário das
+	   tentativas anteriores com "Editor"/"GT America Mono" e depois Adobe
+	   Fonts). --font-mono-bold usa a mesma família que --font-mono: o
+	   "bold" vem do peso 700 carregado à parte, então todo lugar que usa
+	   --font-mono-bold precisa declarar font-weight: 700 (não 400) pra
+	   selecionar esse arquivo em vez do peso 400 regular. */
+	--font-headline: 'Libre Baskerville', Georgia, serif;
+	--font-body: 'Libre Baskerville', Georgia, serif;
+	--font-mono: 'Libre Franklin', Arial, sans-serif;
+	--font-mono-bold: 'Libre Franklin', Arial, sans-serif;
 
 	--rule: 1px solid var(--line);
 	--max: 1400px;
