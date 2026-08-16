@@ -32,7 +32,20 @@
 		if (menuToggle) menuToggle.checked = false;
 		openDoors();
 	});
+
+	// <details name="..."> só fecha os outros dropdowns do grupo quando um
+	// deles abre — clicar fora de todos (ou num link "#" que não navega,
+	// então não passa pelo afterNavigate acima) deixava o menu aberto pra
+	// sempre. Fecha qualquer dropdown aberto cujo clique não veio de dentro
+	// dele mesmo.
+	function closeDropdownsOutside(e: MouseEvent) {
+		document.querySelectorAll('details[open].nav-dropdown').forEach((d) => {
+			if (!d.contains(e.target as Node)) d.removeAttribute('open');
+		});
+	}
 </script>
+
+<svelte:window onclick={closeDropdownsOutside} />
 
 <svelte:head>
 	<link rel="icon" href={favicon} />

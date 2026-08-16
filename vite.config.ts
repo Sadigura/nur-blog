@@ -36,7 +36,7 @@ export default defineConfig({
 			// setar vazia) e o build volta a apontar pra raiz — sem tocar em
 			// nenhum arquivo além do workflow.
 			paths: {
-				base: process.env.BASE_PATH ?? ''
+				base: (process.env.BASE_PATH as `/${string}` | undefined) ?? ''
 			}
 		})
 	]
