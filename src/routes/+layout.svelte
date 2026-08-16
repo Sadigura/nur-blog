@@ -6,7 +6,7 @@
 	import '@fontsource/libre-franklin/400.css';
 	import '@fontsource/libre-franklin/700.css';
 	import { afterNavigate, onNavigate } from '$app/navigation';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.png';
 	import Header from '$lib/components/Header.svelte';
 	import PrimaryNav from '$lib/components/PrimaryNav.svelte';
 	import Drawer from '$lib/components/Drawer.svelte';
@@ -53,7 +53,7 @@
 <svelte:window onclick={closeDropdownsOutside} />
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="image/png" href={favicon} />
 </svelte:head>
 
 <DoorsTransition />
