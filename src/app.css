@@ -1,0 +1,183 @@
+/* ===========================================================
+   NUR — tokens de design
+   =========================================================== */
+
+/* ---- fontes -------------------------------------------------
+   Editor Bold/Regular e GT America Mono Light/Bold são
+   licenciadas pelo NUR/UNIFESP e não estão incluídas neste
+   repositório — precisam estar instaladas no sistema de quem
+   for editar/visualizar localmente. Sem elas instaladas, o
+   navegador usa os substitutos (Georgia / monoespaçada do
+   sistema).
+---------------------------------------------------------------- */
+
+:root {
+	/* claro (padrão) — creme */
+	--paper: #fff7f4;
+	--paper-raised: #fffbf9;
+	--ink: #171016;
+	--ink-soft: #5c5359;
+	--ink-faint: #8a8085;
+	--line: #e6dbd5;
+	--line-strong: #cdbdb6;
+
+	--accent: #3b4090;
+	--accent-strong: #272b66;
+	--accent-tint: #e4e4f2;
+
+	/* uma cor de acento por categoria — usada só nas páginas de ensaio
+	   de cada filósofo (não mais nos cards da grade, que agora são
+	   preto sobre branco, com um dos 4 tons abaixo só no card com foto) */
+	--cat-falsafa: #2563eb;
+	--cat-kalam: #eab308;
+	--cat-averroismo-latino: #8b5cf6;
+	--cat-mistica: #d946ef;
+	--cat-cabala: #ec4899;
+	--cat-mistica-judaica: #f43f5e;
+	--cat-neoplatonismo-judaico: #f97316;
+	--cat-racionalismo-judaico: #dc2626;
+	--cat-filosofia-judaico-arabe: #b45309;
+	--cat-sufismo: #16a34a;
+	--cat-escolastica-comparada: #0d9488;
+	--cat-outros: #0891b2;
+
+	/* fundo do card com foto (o "quadro"): 3 cores fixas que a página
+	   revezia dinamicamente (ver +page.svelte) pra nunca repetir duas
+	   seguidas — junto da cor de texto legível sobre cada uma (o
+	   azul-marinho precisa de texto branco, os outros dois de texto escuro) */
+	--tint-a: #cee0dc;
+	--tint-a-ink: #171016;
+	--tint-b: #363b8f;
+	--tint-b-ink: #fff;
+	--tint-c: #f4d06f;
+	--tint-c-ink: #171016;
+
+	/* fontes instaladas localmente na máquina (licenciadas NUR/UNIFESP,
+	   não redistribuídas neste repositório) — quem não as tiver instaladas
+	   vê o substituto (Georgia / monoespaçada do sistema). "Editor Bold"
+	   e "Editor Regular" não existem como famílias separadas: é uma
+	   família só, "Editor", com o peso normal/negrito escolhido por
+	   font-weight (por isso os dois tokens abaixo apontam pra ela e cada
+	   lugar que usa --font-headline aplica font-weight: 700). */
+	--font-headline: 'Editor', Georgia, serif;
+	--font-body: 'Editor', Georgia, serif;
+	--font-mono: 'GT America Mono Light', 'Courier New', monospace;
+	--font-mono-bold: 'GT America Mono Bold', 'Courier New', monospace;
+
+	--rule: 1px solid var(--line);
+	--max: 1400px;
+}
+
+/* escuro — só ativa via data-theme="dark" (nunca automático pelo SO) */
+:root[data-theme='dark'] {
+	--paper: #171016;
+	--paper-raised: #1f1720;
+	--ink: #f3ece7;
+	--ink-soft: #b7adb2;
+	--ink-faint: #847b80;
+	--line: #352b32;
+	--line-strong: #4a3d45;
+
+	--accent: #8388d6;
+	--accent-strong: #a6aae3;
+	--accent-tint: #262a4a;
+
+	--cat-falsafa: #5f9dff;
+	--cat-kalam: #fbd34d;
+	--cat-averroismo-latino: #ab8bf9;
+	--cat-mistica: #ee7ef7;
+	--cat-cabala: #f772b8;
+	--cat-mistica-judaica: #fb7185;
+	--cat-neoplatonismo-judaico: #fb923c;
+	--cat-racionalismo-judaico: #f87171;
+	--cat-filosofia-judaico-arabe: #e0a44e;
+	--cat-sufismo: #4ade80;
+	--cat-escolastica-comparada: #2dd4bf;
+	--cat-outros: #22d3ee;
+
+	/* mesmo par de 3 cores do modo claro, escurecido — todas já escuras
+	   aqui, então o texto claro padrão (--ink) sempre serve */
+	--tint-a: #202e2a;
+	--tint-a-ink: var(--ink);
+	--tint-b: #23285f;
+	--tint-b-ink: var(--ink);
+	--tint-c: #3d3316;
+	--tint-c-ink: var(--ink);
+}
+
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: var(--paper);
+	color: var(--ink);
+	font-family: var(--font-body);
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+}
+
+/* transição suave ao trocar claro/escuro — só nas propriedades de cor,
+   pra não interferir em transições próprias de hover/animações de layout */
+*,
+*::before,
+*::after {
+	transition:
+		background-color 0.25s ease,
+		border-color 0.25s ease,
+		color 0.25s ease,
+		fill 0.25s ease,
+		stroke 0.25s ease,
+		box-shadow 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition: none;
+	}
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+h1,
+h2,
+h3 {
+	font-family: var(--font-headline);
+	font-weight: 700;
+	text-wrap: balance;
+	margin: 0;
+}
+img,
+svg {
+	max-width: 100%;
+	display: block;
+}
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none !important;
+	}
+}
+
+.label {
+	font-family: var(--font-mono);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.72rem;
+}
+
+.wrap {
+	max-width: var(--max);
+	margin: 0 auto;
+	padding: 0 clamp(16px, 4vw, 40px);
+}
