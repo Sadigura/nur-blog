@@ -12,26 +12,22 @@
 
 	let markerEl: HTMLElement;
 	let boxEl: HTMLElement;
+	let marginTop = $state(2);
 	let lineWidth = $state(0);
-	let lineTransform = $state('translate(0px, 0px) rotate(0deg)');
 
-	// Mede a posição real do número <sup> no meio do parágrafo (varia a
-	// cada nota, dependendo de onde ela cai no texto) e da caixa lateral,
-	// e desenha uma linha reta ligando as duas — em vez de um valor fixo
-	// que não bate com a posição de verdade em cada caso.
+	// Alinha o topo da caixa com a linha de texto onde o número cai (varia
+	// a cada nota) e mede a distância horizontal até ela, pra desenhar uma
+	// linha reta e só horizontal — nunca cruzando por cima do texto.
 	function measure() {
 		if (!markerEl || !boxEl) return;
 		const m = markerEl.getBoundingClientRect();
 		const b = boxEl.getBoundingClientRect();
-		const anchorX = side === 'right' ? 0 : b.width;
-		const anchorY = 16;
-		const px = m.left + m.width / 2 - b.left;
-		const py = m.top + m.height / 2 - b.top;
-		const dx = px - anchorX;
-		const dy = py - anchorY;
-		lineWidth = Math.sqrt(dx * dx + dy * dy);
-		const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
-		lineTransform = `translate(${anchorX}px, ${anchorY}px) rotate(${angle}deg)`;
+		const naturalTop = b.top - marginTop;
+		marginTop = Math.max(2, m.top - naturalTop);
+
+		const nearEdgeX = side === 'right' ? b.left : b.right;
+		const markerEdgeX = side === 'right' ? m.right : m.left;
+		lineWidth = Math.max(0, Math.abs(nearEdgeX - markerEdgeX));
 	}
 
 	onMount(() => {
@@ -59,27 +55,36 @@
 <sup class="sidenote-marker" bind:this={markerEl}>{n}</sup><span
 	class="sidenote side-{side}"
 	bind:this={boxEl}
-	><span class="sidenote-line" style="width: {lineWidth}px; transform: {lineTransform};"
+	style="margin-top: {marginTop}px;"
+	><span
+		class="sidenote-line"
+		style="width: {lineWidth}px; {side === 'right' ? `left: -${lineWidth}px;` : `left: 100%;`}"
 	></span><img class="sidenote-hand" src="{base}/images/manicula.png" alt="" aria-hidden="true" /><span
 		class="sidenote-n">{n}</span
 	>{@render children()}</span
 >
 
 <style>
+	/* Destaque na cor da categoria em volta do próprio número, marcando a
+	   referência dentro do texto corrido (não só a caixa do lado). */
 	.sidenote-marker {
 		font-family: var(--font-mono);
+		font-weight: 700;
 		font-size: 0.7em;
-		color: var(--cat, var(--accent));
+		color: #171016;
+		background: color-mix(in srgb, var(--cat, var(--accent)) 45%, #fff7f4);
+		padding: 0 4px;
+		border-radius: 2px;
 	}
 	/* Caixa de destaque na cor da seção/categoria do artigo (--cat, herdado
 	   do <article> em EssayShell.svelte ou da página do ensaio). Mistura
 	   sempre com um tom claro fixo (não com --paper) pra continuar legível
 	   — texto escuro fixo por cima — mesmo com o tema escuro ativado, onde
-	   --paper vira quase preto. */
+	   --paper vira quase preto. margin-top vem medido via JS (ver measure())
+	   pra alinhar o topo da caixa com a linha de texto onde o número cai. */
 	.sidenote {
 		position: relative;
 		width: 260px;
-		margin-top: 2.6em;
 		margin-bottom: 0.8em;
 		padding: 14px 16px;
 		background: color-mix(in srgb, var(--cat, var(--accent)) 20%, #fff7f4);
@@ -99,18 +104,18 @@
 		clear: left;
 		margin-left: -300px;
 	}
+	/* Linha reta e só horizontal, logo abaixo da linha de texto (nunca
+	   cruzando por cima das letras) — largura e lado vêm medidos via JS. */
 	.sidenote-line {
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 10px;
 		height: 2px;
 		background: var(--cat, var(--accent));
-		transform-origin: 0 0;
 		pointer-events: none;
 	}
 	.sidenote-hand {
 		position: absolute;
-		top: -64px;
+		top: -50px;
 		width: 84px;
 		height: auto;
 		z-index: 1;
@@ -148,7 +153,7 @@
 		.sidenote {
 			display: block;
 			width: auto;
-			margin-top: 8px;
+			margin-top: 8px !important;
 			margin-bottom: 18px;
 			padding-left: 42px;
 		}
