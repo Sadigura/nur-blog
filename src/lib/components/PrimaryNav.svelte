@@ -10,11 +10,17 @@
 			<details class="nav-dropdown" name="primary-nav-dropdown">
 				<summary>Filósofos</summary>
 				<div class="dropdown-panel">
-					<a href="{base}/artigos/maimonides">Maimônides</a>
 					<a href="{base}/artigos/al-farabi-vida-e-reflexao-filosofica">Al-Fārābī</a>
-					<a href="#">Al-Ghazali</a>
-					<a href="{base}/artigos/ibn-arabi">Ibn Arabi</a>
+					<a href="{base}/artigos/al-qirqisani">Al-Qirqisani</a>
 					<a href="{base}/artigos/ibn-sina">Avicena (Ibn Sina)</a>
+					<a href="{base}/artigos/daud-al-muqammas">Daud al-Muqammas</a>
+					<a href="{base}/artigos/ibn-arabi">Ibn Arabi</a>
+					<a href="{base}/artigos/ibn-gabirol">Ibn Gabirol</a>
+					<a href="{base}/artigos/isaac-israeli">Isaac Israeli</a>
+					<a href="{base}/artigos/maimonides">Maimônides</a>
+					<a href="{base}/artigos/saadia-al-fayyumi">Saadia Al-Fayyumi</a>
+					<a href="{base}/artigos/samuel-ibn-nagrella">Samuel ibn Nagrella</a>
+					<a href="{base}/artigos/yehuda-halevi">Yehuda Halevi</a>
 				</div>
 			</details>
 			<span class="nav-sep">|</span>
