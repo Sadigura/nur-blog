@@ -11,11 +11,11 @@
 				<summary>Filósofos</summary>
 				<div class="dropdown-panel">
 					<a href="#">Averróis (Ibn Rushd)</a>
-					<a href="#">Maimônides</a>
-					<a href="#">Al-Fārābī</a>
+					<a href="{base}/artigos/maimonides">Maimônides</a>
+					<a href="{base}/artigos/al-farabi-vida-e-reflexao-filosofica">Al-Fārābī</a>
 					<a href="#">Al-Ghazali</a>
-					<a href="#">Ibn Arabi</a>
-					<a href="#">Avicena (Ibn Sina)</a>
+					<a href="{base}/artigos/ibn-arabi">Ibn Arabi</a>
+					<a href="{base}/artigos/ibn-sina">Avicena (Ibn Sina)</a>
 				</div>
 			</details>
 			<span class="nav-sep">|</span>
@@ -25,6 +25,7 @@
 					<a href="#">2023</a>
 					<a href="#">2024</a>
 					<a href="{base}/cursos/2025">2025</a>
+					<a href="{base}/cursos/2026">2026</a>
 				</div>
 			</details>
 		</div>
@@ -36,7 +37,7 @@
 				<details class="nav-dropdown" name="primary-nav-dropdown">
 					<summary>Recursos</summary>
 					<div class="dropdown-panel">
-						<a href="#">Publicações</a>
+						<a href="{base}/publicacoes">Publicações</a>
 						<a href="{base}/recursos/recursos-bibliograficos">Recursos bibliográficos</a>
 						<a href="#">Sobre o NUR</a>
 						<a href="mailto:contato.nur@unifesp.br">Contato</a>

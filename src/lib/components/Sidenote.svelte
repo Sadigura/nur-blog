@@ -15,15 +15,27 @@
 	let marginTop = $state(2);
 	let lineWidth = $state(0);
 
-	// Alinha o topo da caixa com a linha de texto onde o número cai (varia
-	// a cada nota) e mede a distância horizontal até ela, pra desenhar uma
-	// linha reta e só horizontal — nunca cruzando por cima do texto.
+	// Alinha o topo da caixa com o vão ABAIXO da linha de texto onde o
+	// número cai (nunca com o topo do próprio texto, que cruzaria por cima
+	// das letras) e mede a distância horizontal até ela, pra desenhar uma
+	// linha reta e só horizontal. O <sup> por si só não serve de régua: ele
+	// é menor e deslocado pra cima pelo vertical-align padrão do navegador,
+	// então usa a altura de linha do parágrafo (line-height computado do
+	// elemento-pai) pra achar onde a linha de texto de verdade termina.
 	function measure() {
 		if (!markerEl || !boxEl) return;
+		const parent = markerEl.parentElement;
+		const lineHeightPx = parent
+			? parseFloat(getComputedStyle(parent).lineHeight) || 0
+			: 0;
 		const m = markerEl.getBoundingClientRect();
 		const b = boxEl.getBoundingClientRect();
 		const naturalTop = b.top - marginTop;
-		marginTop = Math.max(2, m.top - naturalTop);
+		// Centro aproximado da linha de texto (não do <sup>) + metade da
+		// altura de linha = vão logo abaixo dela, antes da linha seguinte.
+		const lineCenter = m.top + m.height / 2;
+		const targetTop = lineCenter + (lineHeightPx || m.height * 2.4) / 2 - 6;
+		marginTop = Math.max(2, targetTop - naturalTop);
 
 		const nearEdgeX = side === 'right' ? b.left : b.right;
 		const markerEdgeX = side === 'right' ? m.right : m.left;

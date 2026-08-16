@@ -9,7 +9,7 @@
 	<div class="wrap">
 		<div class="footer-links">
 			<a class="link-box" href="#"><strong>Ver todos os filósofos</strong><span>Autores estudados pelo Núcleo</span></a>
-			<a class="link-box" href="#"><strong>Ver todas as publicações</strong><span>O acervo completo do NUR</span></a>
+			<a class="link-box" href="{base}/publicacoes"><strong>Ver todas as publicações</strong><span>O acervo completo do NUR</span></a>
 		</div>
 		<hr class="rule" />
 		<div class="newsletter">
@@ -48,12 +48,27 @@
 				</div>
 				<div>
 					<dt>Cursos e atividades</dt>
-					<dd><a href="#">Cursos do NUR</a></dd>
+					<dd><a href="{base}/cursos/2026">Cursos do NUR</a></dd>
 					<dt>Redes</dt>
 					<dd class="social-row">
-						<a href="#" aria-label="YouTube"><YouTubeIcon /></a>
-						<a href="#" aria-label="Instagram"><InstagramIcon /></a>
-						<a href="#" aria-label="Facebook"><FacebookIcon /></a>
+						<a
+							href="https://www.youtube.com/@nur-unifesp105"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="YouTube"><YouTubeIcon /></a
+						>
+						<a
+							href="https://www.instagram.com/nurunifesp/"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Instagram"><InstagramIcon /></a
+						>
+						<a
+							href="https://www.facebook.com/groups/nurunifesp/"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Facebook"><FacebookIcon /></a
+						>
 					</dd>
 				</div>
 			</dl>

@@ -16,16 +16,28 @@
 	</div>
 	<nav class="drawer-nav">
 		<a href="#">Filósofos</a>
-		<a href="#">Cursos do NUR</a>
+		<a href="{base}/cursos/2026">Cursos do NUR</a>
 		<a href="{base}/integrantes">Integrantes</a>
-		<a href="#">Publicações</a>
+		<a href="{base}/publicacoes">Publicações</a>
 		<a href="#">Sobre o NUR</a>
 		<a href="mailto:contato.nur@unifesp.br">Contato</a>
 	</nav>
 	<div class="drawer-social">
-		<a href="#" aria-label="YouTube"><YouTubeIcon /></a>
-		<a href="#" aria-label="Instagram"><InstagramIcon /></a>
-		<a href="#" aria-label="Facebook"><FacebookIcon /></a>
+		<a href="https://www.youtube.com/@nur-unifesp105" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
+			><YouTubeIcon /></a
+		>
+		<a
+			href="https://www.instagram.com/nurunifesp/"
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Instagram"><InstagramIcon /></a
+		>
+		<a
+			href="https://www.facebook.com/groups/nurunifesp/"
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Facebook"><FacebookIcon /></a
+		>
 	</div>
 	<a class="drawer-card" href="#">
 		<span class="label">Sobre o núcleo</span>
