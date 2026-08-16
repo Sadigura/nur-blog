@@ -28,9 +28,9 @@
 		clear: right;
 		width: 260px;
 		margin-right: -300px;
-		margin-top: 0.2em;
+		margin-top: 2.6em;
 		margin-bottom: 0.8em;
-		padding: 14px 16px 14px 42px;
+		padding: 14px 16px;
 		background: color-mix(in srgb, var(--cat, var(--accent)) 20%, #fff7f4);
 		border-left: 3px solid var(--cat, var(--accent));
 		font-family: var(--font-mono);
@@ -39,12 +39,30 @@
 		color: #171016;
 		text-align: left;
 	}
+	/* O "fio" que liga a referência no texto até a caixa: como a posição
+	   exata da chamada <sup> no meio do parágrafo varia a cada uso (e só
+	   dá pra saber medindo com JS em tempo real), a linha aqui é uma
+	   aproximação fixa — sai do canto superior esquerdo da caixa e sobe/
+	   estica pra trás, na direção geral de onde a chamada normalmente cai
+	   logo acima, em vez de mirar o pixel exato do número no texto. */
+	.sidenote::before {
+		content: '';
+		position: absolute;
+		top: -1.8em;
+		left: -34px;
+		width: 34px;
+		height: 1.9em;
+		border-top: 2px solid var(--cat, var(--accent));
+		border-left: 2px solid var(--cat, var(--accent));
+		border-top-left-radius: 10px;
+	}
 	.sidenote-hand {
 		position: absolute;
-		left: 8px;
-		top: 12px;
-		width: 26px;
+		top: -78px;
+		left: -74px;
+		width: 108px;
 		height: auto;
+		z-index: 1;
 	}
 	.sidenote-n {
 		font-weight: 700;
@@ -55,6 +73,9 @@
 		font-style: italic;
 	}
 
+	/* Abaixo de 1100px a caixa vira bloco empilhado (sem float) — não há
+	   mais coluna de texto ao lado pra "puxar" com o fio, então ele some;
+	   a mão volta pra dentro da caixa, bem menor. */
 	@media (max-width: 1100px) {
 		.sidenote {
 			float: none;
@@ -62,6 +83,15 @@
 			display: block;
 			width: auto;
 			margin: 8px 0 18px;
+			padding-left: 42px;
+		}
+		.sidenote::before {
+			display: none;
+		}
+		.sidenote-hand {
+			top: 10px;
+			left: 8px;
+			width: 26px;
 		}
 	}
 </style>
