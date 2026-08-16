@@ -10,7 +10,6 @@
 			<details class="nav-dropdown" name="primary-nav-dropdown">
 				<summary>Filósofos</summary>
 				<div class="dropdown-panel">
-					<a href="#">Averróis (Ibn Rushd)</a>
 					<a href="{base}/artigos/maimonides">Maimônides</a>
 					<a href="{base}/artigos/al-farabi-vida-e-reflexao-filosofica">Al-Fārābī</a>
 					<a href="#">Al-Ghazali</a>
