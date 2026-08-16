@@ -2,9 +2,11 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import SpotlightCard from '$lib/components/SpotlightCard.svelte';
 	import ArticleGrid from '$lib/components/ArticleGrid.svelte';
+	import CourseCard from '$lib/components/CourseCard.svelte';
 	import { ARTICLES } from '$lib/data/articles';
 	import { RESOURCES } from '$lib/data/resources';
 	import { CATEGORIES } from '$lib/data/categories';
+	import { COURSES_2026 } from '$lib/data/courses';
 
 	const heroArticle = ARTICLES.find((a) => a.featured === 'hero');
 	const spotlightArticle = ARTICLES.find((a) => a.featured === 'spotlight');
@@ -65,6 +67,17 @@
 	</section>
 {/if}
 
+{#if COURSES_2026.length}
+	<section class="wrap section-block">
+		<div class="section-nav"><span class="label">Cursos atuais</span></div>
+		<div class="courses-grid">
+			{#each COURSES_2026 as course, i (course.slug)}
+				<CourseCard {course} tint={TINT_CYCLE[i % TINT_CYCLE.length]} />
+			{/each}
+		</div>
+	</section>
+{/if}
+
 {#if articlesWithTint.length}
 	<section class="wrap section-block">
 		<div class="section-nav"><span class="label">Publicações do Núcleo, por área</span></div>
@@ -98,5 +111,16 @@
 	}
 	.section-nav .label {
 		color: var(--ink);
+	}
+	.courses-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+	}
+
+	@media (max-width: 800px) {
+		.courses-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

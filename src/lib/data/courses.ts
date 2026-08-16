@@ -36,6 +36,7 @@ export const COURSES_2026: Course[] = [
 		modality: 'Grupo de estudos de pós-graduação',
 		year: '2026',
 		professor: 'Profa. Dra. Cecilia Cintra Cavaleiro de Macedo',
+		image: '/images/course-kuzari.png',
 		href: '/cursos/2026/kuzari-e-a-anti-filosofia'
 	},
 	{
@@ -44,6 +45,7 @@ export const COURSES_2026: Course[] = [
 		modality: 'Minicurso online',
 		year: '2026',
 		professor: 'Prof. Dr. Saeed Javdaniyan',
+		image: '/images/course-suhrawardi.jpg',
 		href: '/cursos/2026/suhrawardi-luz-e-limites-da-razao'
 	}
 ];
