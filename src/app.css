@@ -52,17 +52,20 @@
 	--tint-c: #f4d06f;
 	--tint-c-ink: #171016;
 
-	/* fontes instaladas localmente na máquina (licenciadas NUR/UNIFESP,
-	   não redistribuídas neste repositório) — quem não as tiver instaladas
-	   vê o substituto (Georgia / monoespaçada do sistema). "Editor Bold"
-	   e "Editor Regular" não existem como famílias separadas: é uma
-	   família só, "Editor", com o peso normal/negrito escolhido por
-	   font-weight (por isso os dois tokens abaixo apontam pra ela e cada
-	   lugar que usa --font-headline aplica font-weight: 700). */
-	--font-headline: 'Editor', Georgia, serif;
-	--font-body: 'Editor', Georgia, serif;
-	--font-mono: 'GT America Mono Light', 'Courier New', monospace;
-	--font-mono-bold: 'GT America Mono Bold', 'Courier New', monospace;
+	/* fontes instaladas localmente na máquina (licenciadas, não
+	   redistribuídas neste repositório) — quem não as tiver instaladas
+	   vê o substituto (Georgia / Arial do sistema). Warnock não existe
+	   como família separada por peso: é uma família só, com o peso
+	   normal/negrito escolhido por font-weight (por isso os dois tokens
+	   abaixo apontam pra ela e cada lugar que usa --font-headline aplica
+	   font-weight: 700). Franklin Gothic não é monoespaçada de verdade —
+	   os tokens --font-mono* mantêm o nome só por já serem usados assim
+	   no resto do CSS, mas o alinhamento em colunas que dependeria de
+	   largura fixa de caractere não se aplica mais aqui. */
+	--font-headline: 'Warnock Pro', 'Warnock', Georgia, serif;
+	--font-body: 'Warnock Pro', 'Warnock', Georgia, serif;
+	--font-mono: 'Franklin Gothic Medium', 'Franklin Gothic', Arial, sans-serif;
+	--font-mono-bold: 'Franklin Gothic Medium', 'Franklin Gothic', Arial, sans-serif;
 
 	--rule: 1px solid var(--line);
 	--max: 1400px;
