@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { Article } from '$lib/data/articles';
 
 	let { article }: { article: Article } = $props();
@@ -7,14 +8,14 @@
 <section class="hero">
 	<div class="hero-inner wrap">
 		<div class="hero-box" style="--cat: var(--cat-{article.category}); --cat-tint: var(--tint-a);">
-			<img class="hero-media" src={article.image} alt="" />
+			<img class="hero-media" src="{base}{article.image}" alt="" />
 			<div class="hero-caption">
 				<h1>{article.title}</h1>
 				<div class="hero-byline">Palavras de <b>{article.author}</b></div>
 				<p class="hero-dek">{article.description}</p>
 				<span class="hero-tag">Ler mais →</span>
 			</div>
-			<a class="hero-link" href={article.href} aria-label={article.title}></a>
+			<a class="hero-link" href="{base}{article.href}" aria-label={article.title}></a>
 		</div>
 	</div>
 </section>

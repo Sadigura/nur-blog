@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { base } from '$app/paths';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import { ARTICLES } from '$lib/data/articles';
 
@@ -31,12 +32,12 @@
 				</p>
 			{/if}
 			<div class="error-actions">
-				<a href="/" class="btn-primary">Voltar ao início</a>
+				<a href="{base}/" class="btn-primary">Voltar ao início</a>
 				<a href="mailto:contato.nur@unifesp.br" class="btn-secondary">Falar com o NUR</a>
 			</div>
 		</div>
 		<div class="cat-frame" aria-hidden="true">
-			<img src="/images/gato-404.png" alt="" width="512" height="486" />
+			<img src="{base}/images/gato-404.png" alt="" width="512" height="486" />
 		</div>
 	</div>
 

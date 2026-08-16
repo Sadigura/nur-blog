@@ -24,7 +24,20 @@ export default defineConfig({
 				fallback: '404.html',
 				precompress: false,
 				strict: true
-			})
+			}),
+
+			// Enquanto nur-unifesp.com.br não está no ar, o GitHub Pages serve
+			// o site em sadigura.github.io/nur-blog/ — sob um subcaminho. Todo
+			// link e imagem no código usa caminho absoluto (`/images/...`) que
+			// pressupõe raiz do domínio, então precisam do prefixo {base} (ver
+			// $app/paths) pra funcionar nesse subcaminho temporário.
+			// BASE_PATH é setado no workflow do GitHub Actions; assim que o
+			// domínio próprio estiver ativo, é só apagar essa variável lá (ou
+			// setar vazia) e o build volta a apontar pra raiz — sem tocar em
+			// nenhum arquivo além do workflow.
+			paths: {
+				base: process.env.BASE_PATH ?? ''
+			}
 		})
 	]
 });

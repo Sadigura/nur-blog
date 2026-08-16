@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import CategoryPattern from './CategoryPattern.svelte';
 	import { categoryLabel } from '$lib/data/categories';
 	import type { Article } from '$lib/data/articles';
@@ -25,13 +26,13 @@
 			</div>
 		{/if}
 		{#if article.image}
-			<img src={article.image} alt="" />
+			<img src="{base}{article.image}" alt="" />
 		{:else}
 			<CategoryPattern tint={tint.bg} id="pattern-spot-{article.slug}" />
 		{/if}
 	</div>
 	<div class="spotlight-body">
-		<h2><a class="stretched-link" href={article.href}>{article.title}</a></h2>
+		<h2><a class="stretched-link" href="{base}{article.href}">{article.title}</a></h2>
 		<div class="spotlight-byline">Palavras de <b>{article.author}</b></div>
 	</div>
 	<div class="spotlight-foot">

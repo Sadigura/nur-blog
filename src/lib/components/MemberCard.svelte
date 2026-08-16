@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { Member } from '$lib/data/members';
 
 	let { member }: { member: Member } = $props();
@@ -17,7 +18,7 @@
 <article class="member">
 	<div class="portrait">
 		{#if member.photo}
-			<img src={member.photo} alt="" />
+			<img src="{base}{member.photo}" alt="" />
 		{:else}
 			<span class="initials">{initials}</span>
 		{/if}

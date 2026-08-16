@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { base } from '$app/paths';
 
 	let {
 		title,
@@ -20,7 +21,7 @@
 
 <article class="essay">
 	<div class="wrap essay-head">
-		<a class="back-link" href={backHref}>← Voltar para {backLabel}</a>
+		<a class="back-link" href="{base}{backHref}">← Voltar para {backLabel}</a>
 		<p class="eyebrow">{modality ?? 'Minicurso'} · NUR</p>
 		<h1>{title}</h1>
 		<div class="byline">Por <b>{professor}</b></div>

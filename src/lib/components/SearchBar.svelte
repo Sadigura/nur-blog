@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { ARTICLES } from '$lib/data/articles';
 	import { RESOURCES } from '$lib/data/resources';
 	import { categoryLabel } from '$lib/data/categories';
@@ -74,7 +75,7 @@
 		<div class="search-results" role="listbox">
 			{#if results.length}
 				{#each results as r (r.slug)}
-					<a href={r.href} class="search-result">
+					<a href="{base}{r.href}" class="search-result">
 						<span class="r-title">{r.title}</span>
 						<span class="r-meta">{r.kind} · {categoryLabel(r.category)} · {r.author}</span>
 						{#if r.excerpt}

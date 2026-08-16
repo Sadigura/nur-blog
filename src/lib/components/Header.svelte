@@ -1,6 +1,10 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
+
 <header class="site-header">
-	<a class="brand" href="/" aria-label="NUR, página inicial">
-		<img class="mark" src="/images/logo-averroes-512.png" alt="Retrato ilustrado de Averróis (Ibn Rushd)" />
+	<a class="brand" href="{base}/" aria-label="NUR, página inicial">
+		<img class="mark" src="{base}/images/logo-averroes-512.png" alt="Retrato ilustrado de Averróis (Ibn Rushd)" />
 		<span class="wordmark">NUR<small>Filosofia islâmica, judaica e oriental na UNIFESP</small></span>
 	</a>
 	<label for="menu-toggle" class="hamburger-btn" aria-label="Abrir menu">

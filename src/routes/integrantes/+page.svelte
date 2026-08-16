@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import MemberCard from '$lib/components/MemberCard.svelte';
 	import { MEMBERS } from '$lib/data/members';
 </script>
@@ -8,7 +9,7 @@
 </svelte:head>
 
 <div class="wrap page-head">
-	<a class="back-link" href="/">← Voltar para a página inicial</a>
+	<a class="back-link" href="{base}/">← Voltar para a página inicial</a>
 	<h1>Integrantes</h1>
 	<p class="subtitle">Quem faz parte do Núcleo de Estudos NUR.</p>
 </div>

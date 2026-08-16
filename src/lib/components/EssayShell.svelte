@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { base } from '$app/paths';
 	import type { CategoryId } from '$lib/data/categories';
 	import { categoryLabel } from '$lib/data/categories';
 
@@ -20,7 +21,7 @@
 
 <article class="essay" style="--cat: var(--cat-{category});">
 	<div class="wrap essay-head">
-		<a class="back-link" href="/">← Voltar para a página inicial</a>
+		<a class="back-link" href="{base}/">← Voltar para a página inicial</a>
 		<p class="eyebrow">Artigo · <span class="cat-name">{categoryLabel(category)}</span></p>
 		<h1>{title}</h1>
 		{#if subtitle}

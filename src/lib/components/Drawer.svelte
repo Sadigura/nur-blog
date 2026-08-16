@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import YouTubeIcon from './icons/YouTubeIcon.svelte';
 	import InstagramIcon from './icons/InstagramIcon.svelte';
 	import FacebookIcon from './icons/FacebookIcon.svelte';
@@ -16,7 +17,7 @@
 	<nav class="drawer-nav">
 		<a href="#">Filósofos</a>
 		<a href="#">Cursos do NUR</a>
-		<a href="/integrantes">Integrantes</a>
+		<a href="{base}/integrantes">Integrantes</a>
 		<a href="#">Publicações</a>
 		<a href="#">Sobre o NUR</a>
 		<a href="mailto:contato.nur@unifesp.br">Contato</a>

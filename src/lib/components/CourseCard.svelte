@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import CategoryPattern from './CategoryPattern.svelte';
 	import type { Course } from '$lib/data/courses';
 
@@ -22,7 +23,7 @@
 			</div>
 		{/if}
 		{#if course.image}
-			<img src={course.image} alt="" />
+			<img src="{base}{course.image}" alt="" />
 		{:else}
 			<CategoryPattern tint={tint.bg} id="pattern-course-{course.slug}" />
 		{/if}
@@ -30,7 +31,7 @@
 	<div class="course-body">
 		<h2>
 			{#if course.href}
-				<a class="stretched-link" href={course.href}>{course.title}</a>
+				<a class="stretched-link" href="{base}{course.href}">{course.title}</a>
 			{:else}
 				{course.title}
 			{/if}

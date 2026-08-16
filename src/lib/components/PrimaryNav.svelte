@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import SearchBar from './SearchBar.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 </script>
@@ -23,7 +24,7 @@
 				<div class="dropdown-panel">
 					<a href="#">2023</a>
 					<a href="#">2024</a>
-					<a href="/cursos/2025">2025</a>
+					<a href="{base}/cursos/2025">2025</a>
 				</div>
 			</details>
 		</div>
@@ -31,12 +32,12 @@
 			<SearchBar />
 			<ThemeToggle />
 			<div class="nav-box-group">
-				<a href="/integrantes" class="plain">Integrantes</a>
+				<a href="{base}/integrantes" class="plain">Integrantes</a>
 				<details class="nav-dropdown" name="primary-nav-dropdown">
 					<summary>Recursos</summary>
 					<div class="dropdown-panel">
 						<a href="#">Publicações</a>
-						<a href="/recursos/recursos-bibliograficos">Recursos bibliográficos</a>
+						<a href="{base}/recursos/recursos-bibliograficos">Recursos bibliográficos</a>
 						<a href="#">Sobre o NUR</a>
 						<a href="mailto:contato.nur@unifesp.br">Contato</a>
 					</div>

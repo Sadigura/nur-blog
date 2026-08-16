@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import Sidenote from '$lib/components/Sidenote.svelte';
 
 	const sections = [
@@ -18,7 +19,7 @@
 
 <article class="essay" style="--cat: var(--cat-falsafa); --cat-tint: var(--cat-falsafa-tint);">
 	<div class="wrap essay-head">
-		<a class="back-link" href="/">← Voltar para a página inicial</a>
+		<a class="back-link" href="{base}/">← Voltar para a página inicial</a>
 		<p class="eyebrow">Filósofos · <span class="cat-name">Falsafa</span></p>
 		<h1>Al-Fārābī</h1>
 		<p class="subtitle">Vida e reflexão filosófica</p>

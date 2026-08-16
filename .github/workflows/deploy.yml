@@ -25,6 +25,13 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # TEMPORÁRIO: enquanto nur-unifesp.com.br não está no ar, o site é
+          # servido em sadigura.github.io/nur-blog/ (subcaminho). Assim que o
+          # domínio próprio estiver ativo (CNAME + DNS resolvendo), apague
+          # esta linha (ou deixe BASE_PATH vazio) pra voltar a apontar pra
+          # raiz do domínio — ver vite.config.ts.
+          BASE_PATH: /nur-blog
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

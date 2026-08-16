@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import CategoryPattern from './CategoryPattern.svelte';
 	import { categoryLabel } from '$lib/data/categories';
 	import type { Article } from '$lib/data/articles';
@@ -15,7 +16,7 @@
 	{#if !compact}
 		<div class="card-media">
 			{#if item.image}
-				<img src={item.image} alt="" />
+				<img src="{base}{item.image}" alt="" />
 			{:else}
 				<CategoryPattern tint="var(--cat-tint)" id="pattern-{item.slug}" />
 			{/if}
@@ -25,7 +26,7 @@
 	<div class="byline">{compact ? 'Artigo de' : 'Palavras de'} <b>{item.author}</b></div>
 	<div class="dek-row">
 		<p class="dek">{item.description}</p>
-		<a class="read-more" href={item.href}>Ler mais →</a>
+		<a class="read-more" href="{base}{item.href}">Ler mais →</a>
 	</div>
 	<div class="tag-row">
 		<span class="tag-label">{categoryLabel(item.category)}</span>

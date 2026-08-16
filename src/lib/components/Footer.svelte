@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import YouTubeIcon from './icons/YouTubeIcon.svelte';
 	import InstagramIcon from './icons/InstagramIcon.svelte';
 	import FacebookIcon from './icons/FacebookIcon.svelte';
@@ -43,7 +44,7 @@
 					<dt>Contato geral</dt>
 					<dd><a href="mailto:contato.nur@unifesp.br">contato.nur@unifesp.br</a></dd>
 					<dt>Integrantes</dt>
-					<dd><a href="/integrantes">Ver todos os integrantes</a></dd>
+					<dd><a href="{base}/integrantes">Ver todos os integrantes</a></dd>
 				</div>
 				<div>
 					<dt>Cursos e atividades</dt>
