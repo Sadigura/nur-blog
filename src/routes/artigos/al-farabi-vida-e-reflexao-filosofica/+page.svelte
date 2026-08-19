@@ -271,8 +271,7 @@
 		align-items: start;
 	}
 	.toc {
-		position: sticky;
-		top: 24px;
+		position: static;
 	}
 	.toc-title {
 		color: var(--ink);
